@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-blue: #4200FF;
+    --color-white: #FFFFFF;
+    --color-white200: #F8F8F8;
+    --color-black: #000000;
+    --color-red: #CE4646;
+    --color-green: #4BA036;
+}
+
+.hidden{
+    display: none;
+}
