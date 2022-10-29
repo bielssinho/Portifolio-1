@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="../styles/login.css">
+    <title>Login</title>
+</head>
+<body>
+    <main>
+        <header>
+            <div class="header">
+                <img src="../img/Logo.png" alt="logo do site" class="logo">
+                <img src="../img/menuMobile.png" alt="botao abrir login e register" class="btn-openmenu">
+            </div>
+            <div class="menu hidden">
+                <a href="./login.html" class="login">Login</a>
+                <a href="./register.html" class="cadastro">Cadastro</a>
+            </div>
+        </header>
+        <section class="section-login">
+            <div class="container-login">
+                <h2>Login</h2>
+                <p>Preencha os campos para realizar login</p>
+                <form  method="post" class="form">
+                    <div class="inputs">
+                        <input type="email" name="email" value="" placeholder="Seu e-mail">
+                        <input type="password" name="password" value="" placeholder="Sua senha">
+                    </div>
+                    <div class="buttons">
+                        <button type="submit">Login</button>
+                        <span>ou</span>
+                        <a href="../pages/register.html">Cadastre-se</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

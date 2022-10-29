@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="../styles/register.css">
+    <title>Register</title>
+</head>
+<body>
+    <main>
+        <header>
+            <div class="header">
+                <img src="../img/Logo.png" alt="logo do site" class="logo">
+                <img src="../img/menuMobile.png" alt="botao abrir login e register" class="btn-openmenu">
+            </div>
+            <div class="menu hidden">
+                <a href="./login.html" class="login">Login</a>
+                <a href="./register.html" class="cadastro">Cadastro</a>
+            </div>
+        </header>
+        <section class="section-login">
+            <div class="container-login">
+                <h2>Login</h2>
+                <p>Preencha os campos para realizar login</p>
+                <form  method="post" class="form">
+                    <div class="inputs">
+                        <input type="text" name="username" value="" placeholder="Seu nome">
+                        <input type="email" name="email" value="" placeholder="Seu e-mail">
+                        <input type="password" name="password" value="" placeholder="Sua senha">
+                        <select name="select-setor" id="selectRegister">
+                            <option value="Selecionar Setor" disabled selected>Nível profissional</option>
+                            <option value="baixo">Baixo</option>
+                            <option value="medio">Médio</option>
+                            <option value="alto">Alto</option>
+                        </select>
+                    </div>
+                    <div class="buttons">
+                        <button type="submit">Cadastre-se</button>
+                        <a href="../pages/login.html">Retornar</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
