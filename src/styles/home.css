@@ -185,9 +185,13 @@ header{
         justify-content: center;
     }
 
+    .home-image1{
+        display: flex;
+    }
+
     .image-home{
         width: 80%;
-        height: 100%;
+        height: 95%;
         margin-top: 20px;
         margin-left: 50px;
     }
@@ -209,9 +213,9 @@ header{
 
     .container-empresas{
         background-color: var(--color-white200);
-        width: 85%;
-        height: 100%;
-        margin-left: 40px;
+        width: 84%;
+        height: 87.5%;
+        margin-left: 45px;
     }
 
     .list-empresas{
