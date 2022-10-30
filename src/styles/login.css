@@ -138,3 +138,34 @@ header{
 .hidden{
     display: none;
 }
+
+@media(min-width:700px){
+    header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header{
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    .descktop-menu{
+        display: none;
+    }
+
+    .menu-descktop{
+        width: 40%;
+        display: flex;
+    }
+
+    .section-login{
+        background: url(../img/bg-descktop.png);
+        display: flex;
+        justify-content: center;
+    }
+
+    .container-login{
+        width: 40%;
+    }
+}
