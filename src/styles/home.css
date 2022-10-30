@@ -146,3 +146,77 @@ header{
 .hidden{
     display: none;
 }
+
+@media(min-width:700px){
+    header{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    .header{
+        margin: 0 auto;
+    }
+
+    .btn-openmenu{
+        display: none;
+    }
+
+    .menu{
+        width: 50%;
+    }
+
+    .menu1{
+        display: flex;
+    }
+
+    .empresas{
+        background-color: var(--color-white);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home-image{
+        width: 550px;
+        height: 750px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .image-home{
+        width: 80%;
+        height: 100%;
+        margin-top: 20px;
+        margin-left: 50px;
+    }
+
+    .home-info{
+        width: 550px;
+        height: 750px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .seletor{
+        width: 90%;
+    }
+
+    #select{
+        background-position: 400px;  
+    }
+
+    .container-empresas{
+        background-color: var(--color-white200);
+        width: 85%;
+        height: 100%;
+        margin-left: 40px;
+    }
+
+    .list-empresas{
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+}
