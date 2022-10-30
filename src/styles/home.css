@@ -134,8 +134,8 @@ header{
 .info span{
     display: flex;
     align-items: center;
-    max-width: 200px;
-    width: 81px;
+    justify-content: center;
+    max-width: 100px;
     height: 19px;
     border: 1px solid var(--color-blue);
     color: var(--color-blue);
@@ -221,11 +221,12 @@ header{
         height: 87.5%;
         margin-left: 45px;
         filter: drop-shadow(0px 0px 35px rgba(0, 0, 0, 0.12));
+        overflow-y: auto;
     }
 
     .list-empresas{
         display: flex;
         flex-direction: column;
-        overflow-y: auto;
+        
     }
 }
