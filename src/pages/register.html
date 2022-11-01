@@ -22,18 +22,19 @@
         </header>
         <section class="section-login">
             <div class="container-login">
-                <h2>Login</h2>
-                <p>Preencha os campos para realizar login</p>
+                <h2>Cadastro</h2>
+                <p>Preencha os campos para realizar cadastro</p>
                 <form  method="post" class="form">
                     <div class="inputs">
                         <input type="text" name="username" value="" placeholder="Seu nome">
                         <input type="email" name="email" value="" placeholder="Seu e-mail">
                         <input type="password" name="password" value="" placeholder="Sua senha">
-                        <select name="select-setor" id="selectRegister">
+                        <select name="professional_level" id="selectRegister">
                             <option value="Selecionar Setor">Nível profissional</option>
-                            <option value="Junior">Junior</option>
-                            <option value="Medio">Médio</option>
-                            <option value="Senior">Senior</option>
+                            <option value="estágio">Estágio</option>
+                            <option value="júnior">Júnior</option>
+                            <option value="pleno">Pleno</option>
+                            <option value="sênior">Sênior</option>
                         </select>
                     </div>
                     <div class="buttons">
@@ -43,6 +44,7 @@
                 </form>
             </div>
         </section>
+        <script type="module" src="../script/register.js"></script>
     </main>
 </body>
 </html>

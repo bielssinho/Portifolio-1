@@ -1,4 +1,20 @@
-import { getAllCompany, getCompanyBySector } from "./request.js";
+import { getAllCompany, getAllSectors, getCompanyBySector } from "./request.js";
+
+const criaOption = async () => {
+    const select = document. querySelector("#select");
+    const options = await getAllSectors();
+
+    options.forEach((option) => {
+        const tagOption = document.createElement("option");
+        tagOption.value = `${option.description}`;
+        tagOption.innerText = `${option.description}`;
+
+        select.append(tagOption);
+    })
+}
+
+criaOption()
+
 const select = document. querySelector("#select");
 select.addEventListener("input", () => {renderHome(select.value)})
 
@@ -21,6 +37,8 @@ const renderHome = async (filter)  => {
         })
     }
 }
+
+renderHome(select.value)
 
 const createLi = (company) => {
     const ul = document.querySelector(".list-empresas")

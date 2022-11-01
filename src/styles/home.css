@@ -90,6 +90,7 @@ header{
 #select option{
     font-size: 18px;
     font-weight: 400;
+    text-align: center;
 }
 
 .list-empresas{
@@ -212,7 +213,8 @@ header{
         font-weight: 600;
         font-size: 16px;
         display: flex;
-        justify-content: center;  
+        justify-content: center;
+        text-align: center;
     }
 
     .container-empresas{
