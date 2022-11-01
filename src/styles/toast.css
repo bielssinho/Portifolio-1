@@ -8,6 +8,7 @@
     border: 1px solid var(--color-red);
     border-radius: 4px;
     color: var(--color-white);
+    animation: toast 4000ms ease-in forwards;
 }
 
 .toast-erro p{
@@ -26,10 +27,18 @@
     border: 1px solid var(--color-green);
     border-radius: 4px;
     color: var(--color-white);
+    animation: toast 4000ms ease-in forwards;
 }
 
 .toast-sucesso p{
     font-family: "Inter";
     font-weight: 700;
     font-size: 14px;
+}
+
+@keyframes toast {
+    0%   {right: 200px; top:-100px}
+    25%  {right: 200px; top:10px}
+    50%  {right: 200px; top:10px}
+    100% {right: 200px; top:-100px}
 }

@@ -1,0 +1,233 @@
+body{
+    position: relative;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+header{
+    width: 100vw;
+    border: 1px solid rgba(0, 0, 0, 0.174);
+    display: flex;
+    justify-content: center;
+}
+
+.menuNav{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.menuNav button{
+    width: 120px;
+    height: 32px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-blue);
+    color: var(--color-blue);
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.info-user{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.user{
+    border: 1px solid var(--color-grey);
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.user-cabecalho{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-cabecalho h2{
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.user-cabecalho div{
+    display: flex;
+    justify-content: space-between;
+    gap: 70px;
+}
+
+.user-cabecalho span{
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 22px;
+}
+
+.user button{
+    border: 1px solid transparent;
+    background-color: var(--color-white);
+    cursor: pointer;
+}
+
+.sec-departament{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.no-contrated{
+    border: 1px solid var(--color-blue);
+    background-color: var(--color-grey100);
+    width: 70%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-contrated p{
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.contrated{
+    border: 1px solid var(--color-white);
+    background-color: var(--color-grey100);
+    width: 70%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contrated h3{
+    border: 1px solid var(--color-blue);
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.contrated ul{
+    border: 1px solid transparent;
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    gap: 30px;
+}
+
+.friendwork{
+    border: 1px solid transparent;
+    background-color: var(--color-white);
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.friendwork h4{
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.friendwork span{
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.bg-modal-user{
+    position: absolute;
+    background-color: var(--bg-modal-user);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal{
+    width: 500px;
+    height: 420px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-white);
+    border-radius: 2px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2{
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.close-modal{
+    border: 1px solid transparent;
+    background-color: var(--color-white);
+    cursor: pointer;
+}
+
+.modal-body{
+    border: 1px solid transparent;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-modal-user{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.form-modal-user input{
+    height: 44px;
+    padding: 10px;
+    outline-color: var(--color-blue);
+}
+
+.form-modal-user button{
+    height: 44px;
+    background-color: var(--color-blue);
+    border: 1px solid var(--color-blue);
+    color: var(--color-white);
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}

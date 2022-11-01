@@ -11,10 +11,17 @@
     --color-blue: #4200FF;
     --color-white: #FFFFFF;
     --color-white200: #F8F8F8;
+    --color-grey: rgba(0, 0, 0, 0.2);
+    --color-grey100: #a8a8a82d;
     --color-white-bg: #ffffffea;
     --color-black: #000000;
     --color-red: #CE4646;
     --color-green: #4BA036;
+    --bg-modal-user: rgba(70, 35, 167, 0.13);
+}
+
+ul{
+    list-style: none;
 }
 
 .hidden{
