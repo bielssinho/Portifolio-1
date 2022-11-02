@@ -191,6 +191,60 @@ const updateProfile = async (body) => {
     }
 }
 
+const getAllAdminDepartments = async () => {
+    const token = getTokenLocalStorage();
+    try{
+        const request = await fetch(baseUrl + "departments", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+        const response = await request.json();
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const getAllDepartmentsByCompany = async (id) => {
+    const token = getTokenLocalStorage()
+    try{
+        const request = await fetch(baseUrl + `departments/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+        const response = await request.json();
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const getAllUsers = async () => {
+    const token = getTokenLocalStorage();
+    try{
+        const request = await fetch(baseUrl + "users", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+        const response = await request.json();
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
 export {
     getAllCompany,
     getCompanyBySector,
@@ -201,4 +255,7 @@ export {
     getAllDepartament,
     getAllFriendswork,
     updateProfile,
+    getAllAdminDepartments,
+    getAllDepartmentsByCompany,
+    getAllUsers,
 }
