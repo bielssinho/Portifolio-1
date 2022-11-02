@@ -1,3 +1,6 @@
+import { renderDepartments } from "./adminDash.js";
+import { createDepartment } from "./request.js";
+
 const modalDefault = () => {
     const main = document.querySelector("main")
     const section = document.createElement("section");
@@ -76,6 +79,26 @@ const modalCriarDepartment = (empresas) => {
     div.append(h3, form);
 
     divP.append(div);
+
+    const elements = [...form.elements]
+    
+    form.addEventListener("submit", async(e) => {
+        e.preventDefault()
+
+        const body = {}
+
+        elements.forEach((element) => {
+            if(element.tagName == "INPUT" && element.value !== ""){
+                body[element.name] = element.value
+            }else if(element.tagName == "SELECT" && element.value !== ""){
+                body[element.name] = element.value
+            }
+        })
+        createDepartment(body)
+        renderDepartments("Selecionar empresa")
+        const sec = document.querySelector(".bg-modal");
+        sec.remove()
+    })
 }
 
 const modalEditarDepartment = (company) => {

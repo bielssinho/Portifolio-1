@@ -245,6 +245,25 @@ const getAllUsers = async () => {
     }
 }
 
+const createDepartment = async (body) => {
+    const token = getTokenLocalStorage()
+    try{
+        const request = await fetch(baseUrl + "departments", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body:JSON.stringify(body)
+        });
+        const response = await request.json();
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
 export {
     getAllCompany,
     getCompanyBySector,
@@ -258,4 +277,5 @@ export {
     getAllAdminDepartments,
     getAllDepartmentsByCompany,
     getAllUsers,
+    createDepartment,
 }
