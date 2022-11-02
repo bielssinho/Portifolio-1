@@ -177,3 +177,7 @@ const eventCriar = async () => {
 }
 
 eventCriar();
+
+export{
+    renderDepartments,
+}
