@@ -1,5 +1,5 @@
-import { renderDepartments } from "./adminDash.js";
-import { createDepartment } from "./request.js";
+import { renderDepartments, renderUser } from "./adminDash.js";
+import { createDepartment, deleteDepartment, deleteUser, updateDepartment, updateFuncionario} from "./request.js";
 
 const modalDefault = () => {
     const main = document.querySelector("main")
@@ -94,7 +94,7 @@ const modalCriarDepartment = (empresas) => {
                 body[element.name] = element.value
             }
         })
-        createDepartment(body)
+        await createDepartment(body)
         renderDepartments("Selecionar empresa")
         const sec = document.querySelector(".bg-modal");
         sec.remove()
@@ -126,6 +126,25 @@ const modalEditarDepartment = (company) => {
     div.append(h3, form);
 
     divP.append(div);
+
+    const elements = [...form.elements]
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault()
+
+        const body = {}
+
+        elements.forEach((elemt) => {
+            if(elemt.tagName == "INPUT" && elemt.value !== ""){
+                body[elemt.name] = elemt.value
+            }
+        })
+
+        await updateDepartment(body, company.uuid)
+        renderDepartments("Selecionar empresa")
+        const sec = document.querySelector(".bg-modal");
+        sec.remove()
+    })
 }
 
 const modalEditarUser = (element) => {
@@ -142,7 +161,7 @@ const modalEditarUser = (element) => {
 
     const input = document.createElement("input");
     input.type = "text";
-    input.name = "kind_of_work";
+    input.name = "kindofwork";
     input.value = `${element.kind_of_work}`;
     input.placeholder = "Modalidade de trabalho";
 
@@ -160,6 +179,25 @@ const modalEditarUser = (element) => {
     div.append(h3, form);
     
     divP.append(div);
+
+    const elements = [...form.elements]
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault()
+
+        const body = {}
+
+        elements.forEach((elemt) => {
+            if(elemt.tagName == "INPUT" && elemt.value !== ""){
+                body[elemt.name] = elemt.value
+            }
+        })
+        
+        await updateFuncionario(body, element.uuid)
+        renderUser()
+        const sec = document.querySelector(".bg-modal");
+        sec.remove()
+    })
 }
 
 const modalDeleteUser = (element) => {
@@ -182,6 +220,14 @@ const modalDeleteUser = (element) => {
     div.append(divText);
 
     divP.append(div);
+
+    button.addEventListener("click", async () => {
+        await deleteUser(element.uuid)
+
+        renderUser()
+        const sec = document.querySelector(".bg-modal");
+        sec.remove()
+    })
 }
 
 const modalDeleteDepartment = (company) => {
@@ -204,6 +250,14 @@ const modalDeleteDepartment = (company) => {
     div.append(divText);
 
     divP.append(div);
+
+    button.addEventListener("click", async () => {
+        await deleteDepartment(company.uuid)
+
+        renderDepartments("Selecionar empresa")
+        const sec = document.querySelector(".bg-modal");
+        sec.remove()
+    })
 }
 
 export{

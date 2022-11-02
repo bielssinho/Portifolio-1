@@ -264,6 +264,82 @@ const createDepartment = async (body) => {
     }
 }
 
+const deleteDepartment = async (id) => {
+    const token = getTokenLocalStorage()
+    try{
+        const request = await fetch(baseUrl + `departments/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+        });
+        const response = await request.json()
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const deleteUser = async (id) => {
+    const token = getTokenLocalStorage()
+    try{
+        const request = await fetch(baseUrl + `admin/delete_user/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+        });
+        const response = await request.json()
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const updateFuncionario = async (body, id) => {
+    const token = getTokenLocalStorage();
+    try{
+        const request = await fetch(baseUrl + `admin/update_user/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json();
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const updateDepartment = async (body, id) => {
+    const token = getTokenLocalStorage();
+    try{
+        const request = await fetch(baseUrl + `departments/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json();
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
 export {
     getAllCompany,
     getCompanyBySector,
@@ -278,4 +354,8 @@ export {
     getAllDepartmentsByCompany,
     getAllUsers,
     createDepartment,
+    deleteDepartment,
+    deleteUser,
+    updateFuncionario,
+    updateDepartment,
 }
