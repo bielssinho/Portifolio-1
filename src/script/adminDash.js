@@ -1,3 +1,4 @@
+import { modalCriarDepartment, modalDefault, modalDeleteDepartment, modalDeleteUser, modalEditarDepartment, modalEditarUser } from "./modalAdmin.js";
 import { getAllAdminDepartments, getAllCompany, getAllDepartmentsByCompany, getAllUsers } from "./request.js"
 
 const eventLogout = () => {
@@ -56,10 +57,23 @@ const listDepartment = (company) =>{
     const img2 = document.createElement("img");
     img2.src = "../../src/img/edit black.png";
     img2.alt = "imagem de editar";
+    img2.addEventListener("click", (e) => {
+        e.preventDefault()
+
+        modalDefault()
+        modalEditarDepartment(company)
+    })
 
     const img3 = document.createElement("img");
     img3.src = "../../src/img/delete.png";
     img3.alt = "imagem delete";
+    img3.addEventListener("click", (e) => {
+        e.preventDefault()
+
+        modalDefault()
+        modalDeleteDepartment(company)
+    })
+
 
     div.append(img1, img2, img3);
     li.append(h4, p, pCompanyName, div);
@@ -125,10 +139,22 @@ const renderUser = async () => {
         const img = document.createElement("img");
         img.src = "../../src/img/edit blue.png"
         img.alt = "imagem editar"
+        img.addEventListener("click", (e) => {
+            e.preventDefault()
+
+            modalDefault()
+            modalEditarUser(element)
+        })
 
         const img2 = document.createElement("img");
         img2.src = "../../src/img/delete.png"
-        img2.alt = "imagem editar"
+        img2.alt = "imagem deletar"
+        img2.addEventListener("click", (e) => {
+            e.preventDefault()
+
+            modalDefault()
+            modalDeleteUser(element)
+        })
 
         div.append(img, img2)
         li.append(h4, p, pCompanyName, div)
@@ -137,3 +163,17 @@ const renderUser = async () => {
 }
 
 renderUser();
+
+const eventCriar = async () => {
+    const buttonCriar = document.querySelector("#criar-department");
+
+    buttonCriar.addEventListener("click", async (e) => {
+        e.preventDefault()
+
+        const allCompany = await getAllCompany()
+        modalDefault()
+        modalCriarDepartment(allCompany)
+    })
+}
+
+eventCriar();
