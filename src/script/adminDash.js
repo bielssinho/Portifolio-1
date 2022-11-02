@@ -117,11 +117,10 @@ renderDepartments(select.value);
 
 const renderUser = async () => {
     const data = await getAllUsers();
-
+    
+    const ul = document.querySelector(".list-users")
+    ul.innerHTML =  "";
     data.forEach(element => {
-        const ul = document.querySelector(".list-users")
-        ul.innerHTML =  "";
-
         const li = document.createElement("li");
         li.classList.add("users");
 
@@ -180,4 +179,5 @@ eventCriar();
 
 export{
     renderDepartments,
+    renderUser,
 }
