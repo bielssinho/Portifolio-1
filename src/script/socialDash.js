@@ -168,7 +168,7 @@ const contrated = (empresa, departamento) => {
     h3.innerText = `${empresa.name} - ${departamento.name}`;
 
     const ul = document.createElement("ul");
-    ul.classList("list-friendwork")
+    ul.classList.add("list-friendwork")
 
     div.append(h3, ul);
 
@@ -205,8 +205,8 @@ const departamentArea = async () => {
         contrated(listaDepartamentos, departamentoUser);
 
         const listFrendsWork = await getAllFriendswork();
-
-        listFrendsWork.users.forEach(element => {
+        const list = listFrendsWork[0].users
+        list.forEach(element => {
             criaLi(element)
         });
     }else{

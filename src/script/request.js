@@ -145,7 +145,7 @@ const getAllDepartament = async () => {
         })
 
         const response = await request.json();
-        console.log(response)
+        
         return response
     }catch(err){
         console.log(err)
