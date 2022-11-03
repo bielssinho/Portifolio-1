@@ -42,7 +42,7 @@ const login = async (body) => {
 
             localStorage.setItem("@token:", JSON.stringify(response.token))
 
-            // window.location.replace("../../src/pages/socialDash.html")
+            
             const verificandoAdmin = await isAdmOrNot(response.token);
             if(verificandoAdmin.is_admin){
                 window.location.replace("../../src/pages/adminDash.html")
@@ -340,6 +340,63 @@ const updateDepartment = async (body, id) => {
     }
 }
 
+const getUsersNoContrated = async () => {
+    const token = getTokenLocalStorage();
+    try{
+        const request = await fetch(baseUrl + "admin/out_of_work", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+        const response = await request.json();
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const contratar = async (body) => {
+    const token = getTokenLocalStorage();
+    try{
+        const request = await fetch(baseUrl + `departments/hire/`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json();
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
+const demitir = async (id) => {
+    const token = getTokenLocalStorage();
+    try{
+        const request = await fetch(baseUrl + `departments/dismiss/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        const response = await request.json();
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
 export {
     getAllCompany,
     getCompanyBySector,
@@ -358,4 +415,7 @@ export {
     deleteUser,
     updateFuncionario,
     updateDepartment,
+    getUsersNoContrated,
+    contratar,
+    demitir
 }

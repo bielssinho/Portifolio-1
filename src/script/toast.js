@@ -1,7 +1,7 @@
 const toastSucesso = () => {
     const main = document.querySelector("main");
     const div = document.createElement("div");
-    div.classList.add("toast-sucesso");
+    div.classList = "toast-sucesso toast";
 
     const p = document.createElement("p");
     p.innerText = "Criação de usário bem sucedida!"
@@ -13,7 +13,7 @@ const toastSucesso = () => {
 const toastError = () => {
     const main = document.querySelector("main");
     const div = document.createElement("div");
-    div.classList.add("toast-erro");
+    div.classList = "toast-erro toast";
 
     const p = document.createElement("p");
     p.innerText = "Email ou senha invalidos!"

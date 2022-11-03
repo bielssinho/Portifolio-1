@@ -112,6 +112,7 @@ header{
     display: flex;
     flex-direction: column;
     gap: 80px;
+    border-bottom: 1.5px solid var(--color-blue);
 }
 
 .empresa h3{
