@@ -205,8 +205,8 @@ const departamentArea = async () => {
         contrated(listaDepartamentos, departamentoUser);
 
         const listFrendsWork = await getAllFriendswork();
-        const list = listFrendsWork[0].users
-        list.forEach(element => {
+        const lista = listFrendsWork[0].users
+        lista.forEach(element => {
             criaLi(element)
         });
     }else{
