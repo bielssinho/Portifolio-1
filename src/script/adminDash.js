@@ -1,4 +1,4 @@
-import { modalCriarDepartment, modalDefault, modalDeleteDepartment, modalDeleteUser, modalEditarDepartment, modalEditarUser } from "./modalAdmin.js";
+import { modalCriarDepartment, modalDefault, modalDeleteDepartment, modalDeleteUser, modalEditarDepartment, modalEditarUser, modalVizualizarDepartment } from "./modalAdmin.js";
 import { getAllAdminDepartments, getAllCompany, getAllDepartmentsByCompany, getAllUsers } from "./request.js"
 
 const eventLogout = () => {
@@ -53,6 +53,12 @@ const listDepartment = (company) =>{
     const img1 = document.createElement("img");
     img1.src = "../../src/img/visualizar.png";
     img1.alt = "imagem vizualizar";
+    img1.addEventListener("click", (e) => {
+        e.preventDefault()
+
+        modalDefault()
+        modalVizualizarDepartment(company)
+    })
 
     const img2 = document.createElement("img");
     img2.src = "../../src/img/edit black.png";

@@ -113,6 +113,7 @@ header{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-bottom: 1.5px solid var(--color-blue);
 }
 
 .department h4{
@@ -171,6 +172,7 @@ header{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-bottom: 1.5px solid var(--color-blue);
 }
 
 .users h4{

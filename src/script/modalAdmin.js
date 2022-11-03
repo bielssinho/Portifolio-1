@@ -1,5 +1,5 @@
 import { renderDepartments, renderUser } from "./adminDash.js";
-import { createDepartment, deleteDepartment, deleteUser, updateDepartment, updateFuncionario} from "./request.js";
+import { contratar, createDepartment, deleteDepartment, deleteUser, demitir, getAllUsers, getUsersNoContrated, updateDepartment, updateFuncionario} from "./request.js";
 
 const modalDefault = () => {
     const main = document.querySelector("main")
@@ -161,7 +161,7 @@ const modalEditarUser = (element) => {
 
     const input = document.createElement("input");
     input.type = "text";
-    input.name = "kindofwork";
+    input.name = "kind_of_work";
     input.value = `${element.kind_of_work}`;
     input.placeholder = "Modalidade de trabalho";
 
@@ -260,11 +260,165 @@ const modalDeleteDepartment = (company) => {
     })
 }
 
+const criaLi = (list) =>{
+    const ulDemitir = document.querySelector(".uldemitir");
+    ulDemitir.innerHTML = "";
+    list.forEach((user) => {
+        if(user.department_uuid == company.uuid){
+            const li = document.createElement("li");
+
+            const h4 = document.createElement("h4");
+            h4.innerText = `${user.username}`;
+
+            const pNivel = document.createElement("p");
+            pNivel.innerText = `${user.professional_level}`;
+
+            const pPref = document.createElement("p");
+            pPref.innerText = `${user.kind_of_work}`;
+
+            const divLi = document.createElement("div");
+
+            const buttonDemitir = document.createElement("button");
+            buttonDemitir.id = "btn-demitir"
+            buttonDemitir.innerText = "Desligar";
+
+            divLi.append(buttonDemitir);
+            li.append(h4, pNivel, pPref, divLi);
+            ulDemitir.append(li);
+
+            buttonDemitir.addEventListener("click", async () => {
+                demitir(user.uuid)
+
+                li.remove()
+            })
+        }
+    })
+}
+
+const modalVizualizarDepartment = async (company) => {
+    const divP = document.querySelector(".modal");
+
+    const div = document.createElement("div");
+    div.classList.add("modal-body-vizu");
+
+    const h3 = document.createElement("h3");
+    h3.innerText = `${company.name}`;
+
+    const divContratar = document.createElement("div");
+    divContratar.classList.add("contratar");
+
+    const divInfo = document.createElement("div");
+    divInfo.classList.add("info-department");
+
+    const span = document.createElement("span");
+    span.innerText = `${company.description}`;
+
+    const p = document.createElement("p");
+    p.innerText = `${company.companies.name}`;
+
+    const divForm = document.createElement("div");
+
+    const form = document.createElement("form");
+    form.classList.add("form-contrated");
+
+    const select = document.createElement("select");
+    select.name = "user_uuid";
+    select.id = "select-no-contrated";
+    
+
+    const optionFixed = document.createElement("option");
+    optionFixed.value = "Selecionar usuário";
+    optionFixed.innerText = "Selecionar usuário";
+    optionFixed.disabled = true;
+    optionFixed.selected = true;
+
+    const usersNoContrated = await getUsersNoContrated();
+
+    usersNoContrated.forEach((user) => {
+        const option = document.createElement("option");
+        option.value = `${user.uuid}`;
+        option.innerText = `${user.username}`;
+
+        select.append(option);
+    })
+
+    const buttonContratar = document.createElement("button");
+    buttonContratar.innerText = "Contratar";
+
+    const divDemitir = document.createElement("div");
+    divDemitir.classList.add("demitir");
+
+    const ulDemitir = document.createElement("ul");
+    ulDemitir.classList.add("uldemitir")
+    ulDemitir.innerHTML = "";
+
+    const allUsers = await getAllUsers();
+
+    allUsers.forEach((user) => {
+        if(user.department_uuid == company.uuid){
+            const li = document.createElement("li");
+
+            const h4 = document.createElement("h4");
+            h4.innerText = `${user.username}`;
+
+            const pNivel = document.createElement("p");
+            pNivel.innerText = `${user.professional_level}`;
+
+            const pPref = document.createElement("p");
+            pPref.innerText = `${user.kind_of_work}`;
+
+            const divLi = document.createElement("div");
+
+            const buttonDemitir = document.createElement("button");
+            buttonDemitir.id = "btn-demitir"
+            buttonDemitir.innerText = "Desligar";
+
+            divLi.append(buttonDemitir);
+            li.append(h4, pNivel, pPref, divLi);
+            ulDemitir.append(li);
+
+            buttonDemitir.addEventListener("click", async () => {
+                demitir(user.uuid)
+
+                li.remove()
+            })
+        }
+    })
+
+    
+    divDemitir.append(ulDemitir);
+    select.append(optionFixed);
+    form.append(select, buttonContratar);
+    divForm.append(form);
+    divInfo.append(span, p);
+    divContratar.append(divInfo, divForm);
+    div.append(h3, divContratar, divDemitir);
+
+    divP.append(div);
+
+    const info = [...form.elements]
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault()
+
+        const body = {}
+
+        info.forEach((elemt) => {
+            if(elemt.tagName == "SELECT" && elemt.value !== ""){
+                body[elemt.name] = elemt.value
+                body["department_uuid"] = company.uuid
+            }
+        })
+        contratar(body)
+    })
+}
+
 export{
     modalDefault,
     modalCriarDepartment, 
     modalEditarDepartment,
     modalEditarUser,
     modalDeleteUser,
-    modalDeleteDepartment
+    modalDeleteDepartment,
+    modalVizualizarDepartment,
 }
