@@ -260,7 +260,7 @@ const modalDeleteDepartment = (company) => {
     })
 }
 
-const criaLi = (list) =>{
+const criaLi = (list, company) =>{
     const ulDemitir = document.querySelector(".uldemitir");
     ulDemitir.innerHTML = "";
     list.forEach((user) => {
@@ -410,6 +410,7 @@ const modalVizualizarDepartment = async (company) => {
             }
         })
         contratar(body)
+        criaLi(allUsers, company)
     })
 }
 
