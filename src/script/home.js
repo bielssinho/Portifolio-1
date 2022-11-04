@@ -1,5 +1,28 @@
 import { getAllCompany, getAllSectors, getCompanyBySector } from "./request.js";
 
+const eventOpenMenuMobile = () => {
+    const botao = document.querySelector(".btn-openmenu")
+
+    botao.addEventListener("click", (e) => {
+        e.preventDefault()
+        botao.src = "";
+        botao.src = "../../src/img/x-close menor.png"
+        botao.addEventListener("click" , (e) =>  {
+            e.preventDefault()
+
+            botao.src = "";
+            botao.src = "../../src/img/menuMobile.png"
+            const menu = document.querySelector("#menu");
+            menu.classList.add("hidden")
+        })
+
+        const menu = document.querySelector("#menu");
+        menu.classList.remove("hidden")
+    })
+}
+
+eventOpenMenuMobile();
+
 const criaOption = async () => {
     const select = document. querySelector("#select");
     const options = await getAllSectors();

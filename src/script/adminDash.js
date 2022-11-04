@@ -1,5 +1,16 @@
+import { getTokenLocalStorage } from "./localStorage.js";
 import { modalCriarDepartment, modalDefault, modalDeleteDepartment, modalDeleteUser, modalEditarDepartment, modalEditarUser, modalVizualizarDepartment } from "./modalAdmin.js";
 import { getAllAdminDepartments, getAllCompany, getAllDepartmentsByCompany, getAllUsers } from "./request.js"
+
+const verifyPermission = () => {
+    const user = getTokenLocalStorage();
+
+    if(user == ""){
+        window.location.replace("../../index.html");
+    }
+}
+
+verifyPermission();
 
 const eventLogout = () => {
     const botaoLogout = document.querySelector("#btn-logout");

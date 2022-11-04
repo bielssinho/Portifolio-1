@@ -1,6 +1,15 @@
-import { getIdDepartament } from "./localStorage.js";
+import { getTokenLocalStorage } from "./localStorage.js";
 import { getAllDepartament, getAllFriendswork, getUserProfile, updateProfile } from "./request.js"
 
+const verifyPermission = () => {
+    const user = getTokenLocalStorage();
+
+    if(user == ""){
+        window.location.replace("../../index.html");
+    }
+}
+
+verifyPermission();
 
 const eventLogout = () => {
     const botaoLogout = document.querySelector("#btn-logout");
