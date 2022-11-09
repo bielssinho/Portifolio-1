@@ -109,6 +109,7 @@ const infoUserLogado = async () => {
     const infoUser = await getUserProfile();
     
     departamentArea(infoUser.department_uuid);
+    
     localStorage.setItem("@idDepartament:", JSON.stringify(infoUser.department_uuid))
     const section = document.querySelector(".info-user");
 
