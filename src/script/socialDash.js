@@ -108,8 +108,6 @@ const modal = () => {
 const infoUserLogado = async () => {
     const infoUser = await getUserProfile();
     
-    departamentArea(infoUser.department_uuid);
-    
     localStorage.setItem("@idDepartament:", JSON.stringify(infoUser.department_uuid))
     const section = document.querySelector(".info-user");
 
@@ -203,10 +201,12 @@ const criaLi = (element) => {
     ul.append(li);
 }
 
-const departamentArea = async (id) => {
-    const departamentIdUser = id;
+const departamentArea = async () => {
+    const infoUser = await getUserProfile();
+
+    const departamentIdUser = infoUser.department_uuid;
     
-    if(departamentIdUser){
+    if(departamentIdUser != null){
         const listaDepartamentos = await getAllDepartament();
 
         const pegandoDepartamento = listaDepartamentos.departments
@@ -225,6 +225,8 @@ const departamentArea = async (id) => {
         noContrated();
     }
 }
+
+departamentArea()
 
 
 
