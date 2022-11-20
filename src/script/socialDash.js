@@ -1,6 +1,7 @@
 import { getTokenLocalStorage } from "./localStorage.js";
 import { getAllDepartament, getAllFriendswork, getUserProfile, updateProfile } from "./request.js"
 
+
 const verifyPermission = () => {
     const user = getTokenLocalStorage();
 
